@@ -16,6 +16,9 @@ public class SinglyLinkedList {
         sll.head.next = second;
         second.next = third;
         third.next = fourth;
+
+        // calling functions
+        sll.display();
     }
 
     private static class ListNode{
@@ -30,7 +33,14 @@ public class SinglyLinkedList {
 
     private ListNode head;
 
-    public void display(){
+    // display method
 
+    public void display(){
+        ListNode current = head;
+        while(current != null){
+            System.out.print(current.data + "--> ");
+            current = current.next;
+        }
+        System.out.print("null");
     }
 }
