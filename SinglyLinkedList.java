@@ -54,11 +54,19 @@ public class SinglyLinkedList {
 
 
         // calling insertFirst function & displaying it by calling display function
-        insertLast(1);
-        insertLast(2);
-        insertLast(3);
-        insertLast(4);
-        insertLast(5);
+//        insertLast(1);
+//        insertLast(2);
+//        insertLast(3);
+//        insertLast(4);
+//        insertLast(5);
+//        display();
+
+        // calling insert function & displaying it by calling display function
+        insert(1, 10);
+        insert(2, 20);
+        insert(3, 30);
+        insert(1, 11);
+        insert(4, 33);
         display();
 
 
@@ -111,5 +119,26 @@ public class SinglyLinkedList {
             current = current.next;
         }
         current.next = newNode;
+    }
+
+    // inserting node at a given position
+
+    public static void insert(int position, int value){
+        ListNode node = new ListNode(value);
+        if(position == 1){
+            node.next = head;
+            head = node;
+        }
+        else{
+            ListNode previous = head;
+            int count = 1;
+            while(count < position - 1){
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            previous.next = node;
+            node.next = current;
+        }
     }
 }
