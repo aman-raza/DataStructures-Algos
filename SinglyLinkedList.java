@@ -69,11 +69,18 @@ public class SinglyLinkedList {
         insert(1, 11);
         insert(4, 33);
         display();
+        System.out.println(); // for new line
 
 
         // calling & printing the deleteFirst function data
-        System.out.println(deleteFirst().data + " has deleted");
-        System.out.print("Now the revamped list is : ");
+//        System.out.println(deleteFirst().data + " has been deleted");
+//        System.out.print("Now the revamped list is : ");
+//        display();
+
+
+        // calling & printing the deleteLast function data
+        System.out.println(deleteLast().data + " has been deleted");
+        System.out.println("Now the revamped list is : ");
         display();
 
 
@@ -159,5 +166,22 @@ public class SinglyLinkedList {
         head = head.next;
         temp.next = null;
         return temp;
+    }
+
+    // deleting the last node
+
+    public static ListNode deleteLast(){
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode current = head;
+        ListNode previous = null;
+
+        while(current.next != null){
+            previous = current;
+            current = current.next;
+        }
+        previous.next = null;
+        return current;
     }
 }
