@@ -61,12 +61,19 @@ public class SinglyLinkedList {
 //        insertLast(5);
 //        display();
 
+
         // calling insert function & displaying it by calling display function
         insert(1, 10);
         insert(2, 20);
         insert(3, 30);
         insert(1, 11);
         insert(4, 33);
+        display();
+
+
+        // calling & printing the deleteFirst function data
+        System.out.println(deleteFirst().data + " has deleted");
+        System.out.print("Now the revamped list is : ");
         display();
 
 
@@ -140,5 +147,17 @@ public class SinglyLinkedList {
             previous.next = node;
             node.next = current;
         }
+    }
+
+    // deleting the first node
+
+    public static ListNode deleteFirst(){
+        if(head == null){
+            return null;
+        }
+        ListNode temp = head;
+        head = head.next;
+        temp.next = null;
+        return temp;
     }
 }
