@@ -1,5 +1,7 @@
 package com.aman.data_structures;
 
+import java.util.List;
+
 public class SinglyLinkedList {
 
     private static class ListNode{
@@ -79,8 +81,13 @@ public class SinglyLinkedList {
 
 
         // calling & printing the deleteLast function data
-        System.out.println(deleteLast().data + " has been deleted");
-        System.out.println("Now the revamped list is : ");
+//        System.out.println(deleteLast().data + " has been deleted");
+//        System.out.println("Now the revamped list is : ");
+//        display();
+
+
+        // calling delete function
+        System.out.println("Deleting this no : " + delete(3).data);
         display();
 
 
@@ -182,6 +189,25 @@ public class SinglyLinkedList {
             current = current.next;
         }
         previous.next = null;
+        return current;
+    }
+
+    // deleting a node from a given position
+
+    public static ListNode delete(int position) {
+        ListNode current = null;
+        if (position == 1) {
+            head = head.next;
+        } else {
+            ListNode previous = head;
+            int count = 1;
+            while (count < position - 1) {
+                previous = previous.next;
+                count++;
+            }
+            current = previous.next;
+            previous.next = current.next;
+        }
         return current;
     }
 }
