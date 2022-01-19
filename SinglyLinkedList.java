@@ -1,7 +1,5 @@
 package com.aman.data_structures;
 
-import java.util.List;
-
 public class SinglyLinkedList {
 
     private static class ListNode{
@@ -21,22 +19,22 @@ public class SinglyLinkedList {
 //        SinglyLinkedList sll = new SinglyLinkedList();                            // if the function is static no of creating an object of singlyLinkedList.
 
         // creating nodes
-//        head = new ListNode(10);
-//        ListNode second = new ListNode(1);
-//        ListNode third = new ListNode(8);
-//        ListNode fourth = new ListNode(11);
+        head = new ListNode(10);
+        ListNode second = new ListNode(1);
+        ListNode third = new ListNode(8);
+        ListNode fourth = new ListNode(11);
 
 
 //
         // connecting all nodes together
-//        head.next = second;
-//        second.next = third;
-//        third.next = fourth;
+        head.next = second;
+        second.next = third;
+        third.next = fourth;
 
 
         // calling display function
-//        display();
-//        System.out.println(); // for new line
+        display();
+        System.out.println(); // for new line
 
 
 
@@ -65,13 +63,13 @@ public class SinglyLinkedList {
 
 
         // calling insert function & displaying it by calling display function
-        insert(1, 10);
-        insert(2, 20);
-        insert(3, 30);
-        insert(1, 11);
-        insert(4, 33);
-        display();
-        System.out.println(); // for new line
+//        insert(1, 10);
+//        insert(2, 20);
+//        insert(3, 30);
+//        insert(1, 11);
+//        insert(4, 33);
+//        display();
+//        System.out.println(); // for new line
 
 
         // calling & printing the deleteFirst function data
@@ -92,12 +90,17 @@ public class SinglyLinkedList {
 
 
         // calling the find function & printing the result
-        if(find(1)){
-            System.out.println("Search result found !!!");
-        }
-        else{
-            System.out.println("search result not found !!!");
-        }
+//        if(find(1)){
+//            System.out.println("Search result found !!!");
+//        }
+//        else{
+//            System.out.println("search result not found !!!");
+//        }
+
+
+        // calling the reverse function
+        reverse();
+        // for displaying the list we have to make another function which will display the content reversely, where current will start from next to null
 
 
     }
@@ -234,5 +237,23 @@ public class SinglyLinkedList {
             current = current.next;
         }
         return false;
+    }
+
+    // reversing a singlyLinkedList
+
+    public static void reverse(){
+        if(head == null){
+            return;
+        }
+        ListNode current = head;
+        ListNode previous = null;
+        ListNode next = null;
+
+        while(current != null) {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
     }
 }
