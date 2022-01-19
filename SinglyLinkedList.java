@@ -18,7 +18,7 @@ public class SinglyLinkedList {
 
 
     public static void main(String[] args) {
-        SinglyLinkedList sll = new SinglyLinkedList();
+//        SinglyLinkedList sll = new SinglyLinkedList();                            // if the function is static no of creating an object of singlyLinkedList.
 
         // creating nodes
 //        head = new ListNode(10);
@@ -86,9 +86,18 @@ public class SinglyLinkedList {
 //        display();
 
 
-        // calling delete function
-        System.out.println("Deleting this no : " + delete(3).data);
-        display();
+        // calling & printing the delete function data
+//        System.out.println("Deleting this no : " + delete(3).data);
+//        display();
+
+
+        // calling the find function & printing the result
+        if(find(1)){
+            System.out.println("Search result found !!!");
+        }
+        else{
+            System.out.println("search result not found !!!");
+        }
 
 
     }
@@ -209,5 +218,21 @@ public class SinglyLinkedList {
             previous.next = current.next;
         }
         return current;
+    }
+
+    // searching an element
+
+    public static boolean find(int searchKey){
+        if(head == null){
+            return false;
+        }
+        ListNode current = head;
+        while(current != null){
+            if(current.data == searchKey){
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
     }
 }
