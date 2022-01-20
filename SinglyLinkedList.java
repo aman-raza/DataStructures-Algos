@@ -23,6 +23,8 @@ public class SinglyLinkedList {
         ListNode second = new ListNode(1);
         ListNode third = new ListNode(8);
         ListNode fourth = new ListNode(11);
+        ListNode fifth = new ListNode(15);
+
 
 
 //
@@ -30,6 +32,7 @@ public class SinglyLinkedList {
         head.next = second;
         second.next = third;
         third.next = fourth;
+        fourth.next = fifth;
 
 
         // calling display function
@@ -99,8 +102,12 @@ public class SinglyLinkedList {
 
 
         // calling the reverse function
-        reverse();
-        // for displaying the list we have to make another function which will display the content reversely, where current will start from next to null
+//        reverse();
+        // for displaying the list we have to make another function which will display the content reversely, where current will start from next and will run till null
+
+
+        // calling the getMiddleNode function & printing the data
+        System.out.println("The middle node is : " + getMiddleNode().data);
 
 
     }
@@ -255,5 +262,21 @@ public class SinglyLinkedList {
             previous = current;
             current = next;
         }
+    }
+
+    // finding the middle node
+
+    public static ListNode getMiddleNode(){
+        if(head == null){
+            return null;
+        }
+        ListNode slowPtr = head;
+        ListNode fastPtr = head;
+
+        while(fastPtr != null && fastPtr.next != null){
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
+        }
+        return slowPtr;
     }
 }
