@@ -107,7 +107,11 @@ public class SinglyLinkedList {
 
 
         // calling the getMiddleNode function & printing the data
-        System.out.println("The middle node is : " + getMiddleNode().data);
+//        System.out.println("The middle node is : " + getMiddleNode().data);
+
+
+        // calling the getNthNodeFromTheEnd function & printing the data
+        System.out.println("Nth node from the end is : " + getNthNodeFromTheEnd(2).data);
 
 
     }
@@ -278,5 +282,36 @@ public class SinglyLinkedList {
             fastPtr = fastPtr.next.next;
         }
         return slowPtr;
+    }
+
+    // finding the nth node from the end of the list
+
+    public static ListNode getNthNodeFromTheEnd(int n){
+        if(head == null){
+            return null;
+        }
+
+        if(n <= 0){
+            throw new IllegalArgumentException("Invalid value : n = " + n);
+        }
+
+        ListNode mainPtr = head;
+        ListNode refPtr = head;
+
+        int count = 0;
+
+        while(count < n){
+            if(refPtr == null){
+                throw new IllegalArgumentException(n + " is greater than the number of nodes in the list.");
+            }
+            refPtr = refPtr.next;
+            count++;
+        }
+
+        while(refPtr != null){
+            refPtr = refPtr.next;
+            mainPtr = mainPtr.next;
+        }
+        return mainPtr;
     }
 }
