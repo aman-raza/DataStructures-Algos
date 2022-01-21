@@ -19,10 +19,10 @@ public class SinglyLinkedList {
 //        SinglyLinkedList sll = new SinglyLinkedList();                            // if the function is static no of creating an object of singlyLinkedList.
 
         // creating nodes
-        head = new ListNode(10);
-        ListNode second = new ListNode(1);
-        ListNode third = new ListNode(8);
-        ListNode fourth = new ListNode(11);
+        head = new ListNode(1);
+        ListNode second = new ListNode(5);
+        ListNode third = new ListNode(6);
+        ListNode fourth = new ListNode(13);
         ListNode fifth = new ListNode(15);
 
 
@@ -111,7 +111,17 @@ public class SinglyLinkedList {
 
 
         // calling the getNthNodeFromTheEnd function & printing the data
-        System.out.println("Nth node from the end is : " + getNthNodeFromTheEnd(2).data);
+//        System.out.println("Nth node from the end is : " + getNthNodeFromTheEnd(2).data);
+
+
+        // calling removeDuplicates function & printing the result
+        removeDuplicates();
+        display();
+
+
+        // calling insertInSortedList function & printing the data
+//        insertInSortedList(7);
+//        display();
 
 
     }
@@ -314,4 +324,43 @@ public class SinglyLinkedList {
         }
         return mainPtr;
     }
+
+    // removing the duplicate from the sorted list
+
+    public static void removeDuplicates(){
+        if(head == null){
+            return;
+        }
+
+        ListNode current = head;
+
+        while(current != null && current.next != null){
+            if(current.data == current.next.data){
+                current.next = current.next.next;
+            }
+            else{
+                current = current.next;
+            }
+        }
+    }
+
+    // inserting a node in a sorted list
+
+//    public static ListNode insertInSortedList(int value){
+//        ListNode newNode = new ListNode(value);
+//
+//        if(head == null){
+//            return newNode;
+//        }
+//        ListNode current = head;
+//        ListNode temp = null;
+//
+//        while(current != null && current.data < newNode.data){
+//            temp = current;
+//            current = current.next;
+//        }
+//        newNode.next = current;
+//        temp.next = newNode;
+//        return head;
+//    }
 }
