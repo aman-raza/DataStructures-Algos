@@ -1,5 +1,7 @@
 package com.aman.data_structures;
 
+import java.util.List;
+
 public class SinglyLinkedList {
 
     private static class ListNode{
@@ -135,6 +137,10 @@ public class SinglyLinkedList {
 
         // calling containsLoop function to check if it contains or nor
         System.out.println(containLoop());
+
+
+        // calling startNodeInALoop function & printing its data
+        System.out.println(startNodeInALoop().data);
 
 
     }
@@ -433,5 +439,34 @@ public class SinglyLinkedList {
             }
         }
         return false;
+    }
+
+    // startNodeInALoop // for getting into the loop and then calling the getStartingNode function
+
+    public static ListNode startNodeInALoop(){
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+
+        while(fastPtr != null && fastPtr.next != null){
+            fastPtr = fastPtr.next.next;
+            slowPtr = slowPtr.next;
+
+            if(slowPtr == fastPtr){
+                return getStartingNode(slowPtr);
+            }
+        }
+        return null;
+    }
+
+    // finding start of a loop after getting into the loop from the previous function
+
+    private static ListNode getStartingNode(ListNode slowPtr) {
+        ListNode temp = head;
+
+        while(temp != slowPtr){
+            temp = temp.next;
+            slowPtr = slowPtr.next;
+        }
+        return temp;  // this temp is the starting node of the loop
     }
 }
