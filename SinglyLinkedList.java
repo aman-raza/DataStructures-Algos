@@ -120,7 +120,12 @@ public class SinglyLinkedList {
 
 
         // calling insertInSortedList function & printing the data
-        insertInSortedList(7);
+//        insertInSortedList(7);
+//        display();
+
+
+        // calling deleteNode function & displaying the data
+        deleteNode(13);
         display();
 
 
@@ -362,5 +367,27 @@ public class SinglyLinkedList {
         newNode.next = current;
         temp.next = newNode;
         return head;
+    }
+
+    // remove a given key from the list
+
+    public static void deleteNode(int key){
+        ListNode current = head;
+        ListNode temp = null;
+
+        if(current != null && current.data == key){
+            head = current.next;
+            return;
+        }
+
+        while(current != null && current.data != key){
+            temp = current;
+            current = current.next;
+        }
+
+        if(current == null){
+            return;
+        }
+        temp.next = current.next;
     }
 }
