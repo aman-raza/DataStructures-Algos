@@ -442,7 +442,7 @@ public class SinglyLinkedList {
     }
 
 
-    // FLOYD'S CYCLE DETECTION ALGORITHM :
+    // FLOYD'S CYCLE DETECTION ALGORITHM : START
 
 
 
@@ -474,4 +474,7 @@ public class SinglyLinkedList {
         }
         return temp;  // this temp is the starting node of the loop
     }
+
+
+    // FLOYD'S CYCLE DETECTION ALGORITHM : END
 }
