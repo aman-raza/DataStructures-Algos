@@ -125,8 +125,16 @@ public class SinglyLinkedList {
 
 
         // calling deleteNode function & displaying the data
-        deleteNode(13);
-        display();
+//        deleteNode(13);
+//        display();
+
+
+        // calling createALoopInALinkedList function to create a loop
+        createALoopInLinkedList();
+
+
+        // calling containsLoop function to check if it contains or nor
+        System.out.println(containLoop());
 
 
     }
@@ -408,5 +416,22 @@ public class SinglyLinkedList {
         fourth.next = fifth;
         fifth.next = sixth;
         sixth.next = third;
+    }
+
+    // detect a loop in the list
+
+    public static boolean containLoop(){
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+
+        while(fastPtr != null && fastPtr.next != null){
+            fastPtr = fastPtr.next.next;
+            slowPtr = slowPtr.next;
+
+            if(slowPtr == fastPtr){
+                return true;
+            }
+        }
+        return false;
     }
 }
