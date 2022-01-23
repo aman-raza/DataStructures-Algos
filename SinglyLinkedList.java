@@ -140,8 +140,12 @@ public class SinglyLinkedList {
 
 
         // calling startNodeInALoop function & printing its data
-        System.out.println(startNodeInALoop().data);
+//        System.out.println(startNodeInALoop().data);
 
+
+        // calling removeLoop & displaying the list without the loop
+        removeLoop();
+        display();
 
     }
 
@@ -477,4 +481,36 @@ public class SinglyLinkedList {
 
 
     // FLOYD'S CYCLE DETECTION ALGORITHM : END
+
+
+
+    // remove loop from a list using FLOYD'S CYCLE DETECTION ALGORITHM : START
+
+    public static void removeLoop(){
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+
+        while(fastPtr != null && fastPtr.next != null){
+            fastPtr = fastPtr.next.next;
+            slowPtr = slowPtr.next;
+
+            if(slowPtr == fastPtr){
+                removeLoop(slowPtr);
+                return;
+            }
+        }
+    }
+
+
+    private static void removeLoop(ListNode slowPtr) {
+        ListNode temp = head;
+
+        while(temp.next != slowPtr.next){
+            temp = temp.next;
+            slowPtr = slowPtr.next;
+        }
+        slowPtr.next = null;
+    }
+
+    // remove loop from a list using FLOYD'S CYCLE DETECTION ALGORITHM : END
 }
