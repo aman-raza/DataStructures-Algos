@@ -14,88 +14,88 @@ public class SinglyLinkedList {
         }
     }
 
-    private static ListNode head;
+    private ListNode head;
 
 
     public static void main(String[] args) {
-//        SinglyLinkedList sll = new SinglyLinkedList();                            // if the function is static no of creating an object of singlyLinkedList.
+        SinglyLinkedList sll = new SinglyLinkedList();                            // if the function is static no need of creating an object of singlyLinkedList.
 
         // creating nodes
-        head = new ListNode(1);
-        ListNode second = new ListNode(5);
-        ListNode third = new ListNode(6);
-        ListNode fourth = new ListNode(13);
-        ListNode fifth = new ListNode(15);
+//        sll.head = new ListNode(1);
+//        ListNode second = new ListNode(5);
+//        ListNode third = new ListNode(6);
+//        ListNode fourth = new ListNode(13);
+//        ListNode fifth = new ListNode(15);
 
 
 
 //
         // connecting all nodes together
-        head.next = second;
-        second.next = third;
-        third.next = fourth;
-        fourth.next = fifth;
+//        sll.head.next = second;
+//        second.next = third;
+//        third.next = fourth;
+//        fourth.next = fifth;
 
 
         // calling display function
-        display();
-        System.out.println(); // for new line
+//        sll.display();
+//        System.out.println(); // for new line
 
 
 
         // calling & printing value of length function
-//        System.out.println("The length of the list is : " + length());
+//        System.out.println("The length of the list is : " + sll.length());
 
 
 
         // calling insertFirst function & displaying it by calling display function
-//        insertFirst(1);
-//        insertFirst(2);
-//        insertFirst(3);
-//        insertFirst(4);
-//        insertFirst(5);
-//        display();
+//        sll.insertFirst(1);
+//        sll.insertFirst(2);
+//        sll.insertFirst(3);
+//        sll.insertFirst(4);
+//        sll.insertFirst(5);
+//        sll.display();
 
 
 
-        // calling insertFirst function & displaying it by calling display function
-//        insertLast(1);
-//        insertLast(2);
-//        insertLast(3);
-//        insertLast(4);
-//        insertLast(5);
-//        display();
+        // calling insertLast function & displaying it by calling display function
+//        sll.insertLast(1);
+//        sll.insertLast(2);
+//        sll.insertLast(3);
+//        sll.insertLast(4);
+//        sll.insertLast(5);
+//        sll.display();
 
 
         // calling insert function & displaying it by calling display function
-//        insert(1, 10);
-//        insert(2, 20);
-//        insert(3, 30);
-//        insert(1, 11);
-//        insert(4, 33);
-//        display();
+//        sll.insert(1, 10);
+//        sll.insert(2, 20);
+//        sll.insert(3, 30);
+//        sll.insert(1, 11);
+//        sll.insert(4, 33);
+//        sll.display();
 //        System.out.println(); // for new line
 
 
         // calling & printing the deleteFirst function data
-//        System.out.println(deleteFirst().data + " has been deleted");
+//        System.out.println(sll.deleteFirst().data + " has been deleted");
 //        System.out.print("Now the revamped list is : ");
-//        display();
+//        sll.display();
 
 
         // calling & printing the deleteLast function data
-//        System.out.println(deleteLast().data + " has been deleted");
+//        System.out.println(sll.deleteLast().data + " has been deleted");
 //        System.out.println("Now the revamped list is : ");
-//        display();
+//        sll.display();
 
 
         // calling & printing the delete function data
-//        System.out.println("Deleting this no : " + delete(3).data);
-//        display();
+//        System.out.println("Deleting this no : " + sll.delete(3).data);
+//        sll.display();
 
 
         // calling the find function & printing the result
-//        if(find(1)){
+//        if(sll.find(1)){
 //            System.out.println("Search result found !!!");
 //        }
 //        else{
@@ -104,54 +104,81 @@ public class SinglyLinkedList {
 
 
         // calling the reverse function
-//        reverse();
+//        sll.reverse();
         // for displaying the list we have to make another function which will display the content reversely, where current will start from next and will run till null
 
 
         // calling the getMiddleNode function & printing the data
-//        System.out.println("The middle node is : " + getMiddleNode().data);
+//        System.out.println("The middle node is : " + sll.getMiddleNode().data);
 
 
         // calling the getNthNodeFromTheEnd function & printing the data
-//        System.out.println("Nth node from the end is : " + getNthNodeFromTheEnd(2).data);
+//        System.out.println("Nth node from the end is : " + sll.getNthNodeFromTheEnd(2).data);
 
 
         // calling removeDuplicates function & printing the result
-//        removeDuplicates();
-//        display();
+//        sll.removeDuplicates();
+//        sll.display();
 
 
         // calling insertInSortedList function & printing the data
-//        insertInSortedList(7);
-//        display();
+//        sll.insertInSortedList(7);
+//        sll.display();
 
 
         // calling deleteNode function & displaying the data
-//        deleteNode(13);
-//        display();
+//        sll.deleteNode(13);
+//        sll.display();
 
 
         // calling createALoopInALinkedList function to create a loop
-        createALoopInLinkedList();
+//        sll.createALoopInLinkedList();
 
 
         // calling containsLoop function to check if it contains or nor
-        System.out.println(containLoop());
+//        System.out.println(sll.containLoop());
 
 
         // calling startNodeInALoop function & printing its data
-//        System.out.println(startNodeInALoop().data);
+//        System.out.println(sll.startNodeInALoop().data);
 
 
         // calling removeLoop & displaying the list without the loop
-        removeLoop();
-        display();
+//        sll.removeLoop();
+//        sll.display();
+
+
+
+        // creating list a
+        SinglyLinkedList a = new SinglyLinkedList();
+        a.insertLast(1);
+        a.insertLast(5);
+        a.insertLast(8);
+        a.display();
+        System.out.println();
+
+        // creating list b
+        SinglyLinkedList b = new SinglyLinkedList();
+        b.insertLast(3);
+        b.insertLast(6);
+        b.insertLast(7);
+        b.insertLast(10);
+        b.insertLast(16);
+        b.insertLast(19);
+        b.display();
+        System.out.println();
+
+
+        //creating the result list & calling merge function & displaying the list
+        SinglyLinkedList result = new SinglyLinkedList();
+        result.head = merge(a.head, b.head);
+        result.display();
 
     }
 
     // display method
 
-    public static void display(){
+    public void display(){
         ListNode current = head;
         while(current != null){
             System.out.print(current.data + "--> ");
@@ -162,7 +189,7 @@ public class SinglyLinkedList {
 
     // length of list
 
-    public static int length() {
+    public int length() {
         if (head == null) {
             return 0;
         }
@@ -177,7 +204,7 @@ public class SinglyLinkedList {
 
     // inserting node at the start
 
-    public static void insertFirst(int value){
+    public void insertFirst(int value){
         ListNode newNode = new ListNode(value);
         newNode.next = head;
         head = newNode;
@@ -185,7 +212,7 @@ public class SinglyLinkedList {
 
     // inserting node at the end
 
-    public static  void insertLast(int value){
+    public void insertLast(int value){
         ListNode newNode = new ListNode(value);
         if(head == null){
             head = newNode;
@@ -200,7 +227,7 @@ public class SinglyLinkedList {
 
     // inserting node at a given position
 
-    public static void insert(int position, int value){
+    public void insert(int position, int value){
         ListNode node = new ListNode(value);
         if(position == 1){
             node.next = head;
@@ -221,7 +248,7 @@ public class SinglyLinkedList {
 
     // deleting the first node
 
-    public static ListNode deleteFirst(){
+    public ListNode deleteFirst(){
         if(head == null){
             return null;
         }
@@ -233,7 +260,7 @@ public class SinglyLinkedList {
 
     // deleting the last node
 
-    public static ListNode deleteLast(){
+    public ListNode deleteLast(){
         if(head == null || head.next == null){
             return head;
         }
@@ -250,7 +277,7 @@ public class SinglyLinkedList {
 
     // deleting a node from a given position
 
-    public static ListNode delete(int position) {
+    public ListNode delete(int position) {
         ListNode current = null;
         if (position == 1) {
             head = head.next;
@@ -269,7 +296,7 @@ public class SinglyLinkedList {
 
     // searching an element
 
-    public static boolean find(int searchKey){
+    public boolean find(int searchKey){
         if(head == null){
             return false;
         }
@@ -285,7 +312,7 @@ public class SinglyLinkedList {
 
     // reversing a singlyLinkedList
 
-    public static void reverse(){
+    public void reverse(){
         if(head == null){
             return;
         }
@@ -303,7 +330,7 @@ public class SinglyLinkedList {
 
     // finding the middle node
 
-    public static ListNode getMiddleNode(){
+    public ListNode getMiddleNode(){
         if(head == null){
             return null;
         }
@@ -319,7 +346,7 @@ public class SinglyLinkedList {
 
     // finding the nth node from the end of the list
 
-    public static ListNode getNthNodeFromTheEnd(int n){
+    public ListNode getNthNodeFromTheEnd(int n){
         if(head == null){
             return null;
         }
@@ -350,7 +377,7 @@ public class SinglyLinkedList {
 
     // removing the duplicate from the sorted list
 
-    public static void removeDuplicates(){
+    public void removeDuplicates(){
         if(head == null){
             return;
         }
@@ -369,7 +396,7 @@ public class SinglyLinkedList {
 
     // inserting a node in a sorted list
 
-    public static ListNode insertInSortedList(int value){
+    public ListNode insertInSortedList(int value){
         ListNode newNode = new ListNode(value);
 
         if(head == null){
@@ -389,7 +416,7 @@ public class SinglyLinkedList {
 
     // remove a given key from the list
 
-    public static void deleteNode(int key){
+    public void deleteNode(int key){
         ListNode current = head;
         ListNode temp = null;
 
@@ -411,7 +438,7 @@ public class SinglyLinkedList {
 
     // creating a loop in the list
 
-    public static void createALoopInLinkedList(){
+    public void createALoopInLinkedList(){
         ListNode first = new ListNode(1);
         ListNode second = new ListNode(2);
         ListNode third = new ListNode(3);
@@ -430,7 +457,7 @@ public class SinglyLinkedList {
 
     // detect a loop in the list
 
-    public static boolean containLoop(){
+    public boolean containLoop(){
         ListNode fastPtr = head;
         ListNode slowPtr = head;
 
@@ -452,7 +479,7 @@ public class SinglyLinkedList {
 
     // startNodeInALoop // for getting into the loop and then calling the getStartingNode function
 
-    public static ListNode startNodeInALoop(){
+    public ListNode startNodeInALoop(){
         ListNode fastPtr = head;
         ListNode slowPtr = head;
 
@@ -469,7 +496,7 @@ public class SinglyLinkedList {
 
     // finding start of a loop after getting into the loop from the previous function
 
-    private static ListNode getStartingNode(ListNode slowPtr) {
+    private ListNode getStartingNode(ListNode slowPtr) {
         ListNode temp = head;
 
         while(temp != slowPtr){
@@ -486,7 +513,7 @@ public class SinglyLinkedList {
 
     // remove loop from a list using FLOYD'S CYCLE DETECTION ALGORITHM : START
 
-    public static void removeLoop(){
+    public void removeLoop(){
         ListNode fastPtr = head;
         ListNode slowPtr = head;
 
@@ -502,7 +529,7 @@ public class SinglyLinkedList {
     }
 
 
-    private static void removeLoop(ListNode slowPtr) {
+    private void removeLoop(ListNode slowPtr) {
         ListNode temp = head;
 
         while(temp.next != slowPtr.next){
@@ -513,4 +540,31 @@ public class SinglyLinkedList {
     }
 
     // remove loop from a list using FLOYD'S CYCLE DETECTION ALGORITHM : END
+
+
+    // merge two sorted lists
+
+    public static ListNode merge(ListNode a, ListNode b){
+        ListNode dummy = new ListNode(0);
+        ListNode tail = dummy;
+
+        while(a != null && b != null){
+            if(a.data <= b.data){
+                tail.next = a;
+                a = a.next;
+            }
+            else{
+                tail.next = b;
+                b = b.next;
+            }
+            tail = tail.next;
+        }
+        if(a == null){
+            tail.next = b;
+        }
+        else{
+            tail.next = a;
+        }
+        return dummy.next;
+    }
 }
