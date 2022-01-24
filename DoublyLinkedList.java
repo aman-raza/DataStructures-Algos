@@ -35,6 +35,8 @@ public class DoublyLinkedList {
         dll.insertLast(10);
         dll.insertLast(15);
         dll.insertLast(25);
+
+        dll.displayForward();
     }
 
     // insert a node at the end
@@ -49,5 +51,18 @@ public class DoublyLinkedList {
         newNode.previous = tail;
         tail = newNode;
         length++;
+    }
+
+    // print in forward direction
+    public void displayForward(){
+        if(head == null){
+            return;
+        }
+        ListNode temp = head;
+        while(temp != null){
+            System.out.print(temp.data + "-->");
+            temp = temp.next;
+        }
+        System.out.println("null");
     }
 }
