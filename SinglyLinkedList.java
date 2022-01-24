@@ -151,28 +151,30 @@ public class SinglyLinkedList {
 
         // creating list a
         SinglyLinkedList a = new SinglyLinkedList();
-        a.insertLast(1);
-        a.insertLast(5);
-        a.insertLast(8);
+        a.insertLast(7);
+        a.insertLast(4);
+        a.insertLast(9);
         a.display();
         System.out.println();
 
         // creating list b
         SinglyLinkedList b = new SinglyLinkedList();
-        b.insertLast(3);
+        b.insertLast(5);
         b.insertLast(6);
-        b.insertLast(7);
-        b.insertLast(10);
-        b.insertLast(16);
-        b.insertLast(19);
         b.display();
         System.out.println();
 
 
         //creating the result list & calling merge function & displaying the list
-        SinglyLinkedList result = new SinglyLinkedList();
-        result.head = merge(a.head, b.head);
-        result.display();
+//        SinglyLinkedList result = new SinglyLinkedList();
+//        result.head = merge(a.head, b.head);
+//        result.display();
+
+
+        // calling add function & displaying the result
+        SinglyLinkedList sum = new SinglyLinkedList();
+        sum.head = add(a.head, b.head);
+        sum.display();
 
     }
 
@@ -564,6 +566,35 @@ public class SinglyLinkedList {
         }
         else{
             tail.next = a;
+        }
+        return dummy.next;
+    }
+
+    // add two numbers using singly linked list
+
+    public static ListNode add(ListNode a, ListNode b){
+        ListNode dummy = new ListNode(0);
+        ListNode tail = dummy;
+        int carry = 0;
+
+        while(a != null || b != null){
+            int x = (a != null) ? a.data : 0;
+            int y = (b != null) ? b.data : 0;
+
+            int sum = carry + x + y;
+            carry = sum / 10;
+            tail.next = new ListNode(sum % 10);
+            tail = tail.next;
+
+            if(a != null){
+                a = a.next;
+            }
+            if(b != null){
+                b = b.next;
+            }
+        }
+        if(carry > 0){
+            tail.next = new ListNode(carry);
         }
         return dummy.next;
     }
