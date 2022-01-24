@@ -37,6 +37,7 @@ public class DoublyLinkedList {
         dll.insertLast(25);
 
         dll.displayForward();
+        dll.displayBackward();
     }
 
     // insert a node at the end
@@ -62,6 +63,19 @@ public class DoublyLinkedList {
         while(temp != null){
             System.out.print(temp.data + "-->");
             temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    // print in backward direction
+    public void displayBackward(){
+        if(tail == null){
+            return;
+        }
+        ListNode temp = tail;
+        while(temp != null){
+            System.out.print(temp.data + "-->");
+            temp = temp.previous;
         }
         System.out.println("null");
     }
