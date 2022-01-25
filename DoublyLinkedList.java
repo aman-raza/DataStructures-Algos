@@ -69,10 +69,6 @@ public class DoublyLinkedList {
 
 
 
-
-
-
-
     // insert a node at the end
     public void insertLast(int value){
         ListNode newNode = new ListNode(value);
