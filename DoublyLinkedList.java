@@ -31,10 +31,23 @@ public class DoublyLinkedList {
 
     public static void main(String[] args){
         DoublyLinkedList dll = new DoublyLinkedList();
-        dll.insertLast(1);
-        dll.insertLast(10);
-        dll.insertLast(15);
-        dll.insertLast(25);
+
+        // calling insertLast method
+
+
+//        dll.insertLast(1);
+//        dll.insertLast(10);
+//        dll.insertLast(15);
+//        dll.insertLast(25);
+
+
+        // calling insertFirst method
+        
+
+        dll.insertFirst(1);
+        dll.insertFirst(2);
+        dll.insertFirst(5);
+        dll.insertFirst(10);
 
         dll.displayForward();
         dll.displayBackward();
@@ -80,5 +93,18 @@ public class DoublyLinkedList {
         System.out.println("null");
     }
 
-    // new comment
+    // insert a node at the start
+
+    public void insertFirst(int value){
+        ListNode newNode = new ListNode(value);
+        if(isEmpty()){
+            tail = newNode;
+        }
+        else{
+            head.previous = newNode;
+        }
+        newNode.next = head;
+        head = newNode;
+        length++;
+    }
 }
