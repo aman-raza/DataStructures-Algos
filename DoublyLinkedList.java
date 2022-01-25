@@ -54,10 +54,24 @@ public class DoublyLinkedList {
         dll.displayForward();
 //        dll.displayBackward();
 
+
         // calling deleteFirst method & printing the result
-        dll.deleteFirst();
+//        dll.deleteFirst();
+//        dll.displayForward();
+
+
+
+        // calling deleteLast method & printing the result
+        dll.deleteLast();
         dll.displayForward();
     }
+
+
+
+
+
+
+
 
     // insert a node at the end
     public void insertLast(int value){
@@ -129,6 +143,25 @@ public class DoublyLinkedList {
         }
         head = head.next;
         temp.next = null;
+        length--;
+        return temp;
+    }
+
+    // delete the last node
+
+    public ListNode deleteLast(){
+        if(isEmpty()){
+            throw new NoSuchElementException();
+        }
+        ListNode temp = head;
+        if(head == tail){
+            head = null;
+        }
+        else{
+            tail.previous.next = null;
+        }
+        tail = tail.previous;
+        temp.previous = null;
         length--;
         return temp;
     }
