@@ -1,5 +1,7 @@
 package com.aman.data_structures;
 
+import java.util.NoSuchElementException;
+
 public class CircularSinglyLinkedList {
     private ListNode last;
     private int length;
@@ -27,6 +29,21 @@ public class CircularSinglyLinkedList {
     }
 
 
+    public void createCircularLinkedList(){
+        ListNode first = new ListNode(1);
+        ListNode second = new ListNode(5);
+        ListNode third = new ListNode(10);
+        ListNode fourth = new ListNode(15);
+
+        first.next = second;
+        second.next = third;
+        third.next = fourth;
+        fourth.next = first;
+
+        last =fourth;
+    }
+
+
 
     public static void main(String[] args) {
         CircularSinglyLinkedList csll = new CircularSinglyLinkedList();
@@ -48,23 +65,14 @@ public class CircularSinglyLinkedList {
         csll.insertLast(10);
         csll.insertLast(15);
         csll.display();
+
+
+        // calling removeFirst method & printing the result
+        csll.removeFirst();
+        csll.display();
     }
 
 
-
-    public void createCircularLinkedList(){
-        ListNode first = new ListNode(1);
-        ListNode second = new ListNode(5);
-        ListNode third = new ListNode(10);
-        ListNode fourth = new ListNode(15);
-
-        first.next = second;
-        second.next = third;
-        third.next = fourth;
-        fourth.next = first;
-
-        last =fourth;
-    }
 
     // display the list
 
@@ -100,7 +108,7 @@ public class CircularSinglyLinkedList {
     public void insertLast(int data){
         ListNode temp = new ListNode(data);
 
-        if(last == null){
+        if(last == null){ // isEmpty()
             last = temp;
             last.next = last;
         }
@@ -110,5 +118,24 @@ public class CircularSinglyLinkedList {
             last = temp;
         }
         length++;
+    }
+
+    // remove the first node from the list
+
+    public ListNode removeFirst(){
+        if(isEmpty()){
+            throw new NoSuchElementException("Circular Singly Linked List is Empty");
+        }
+
+        ListNode temp = last.next;
+        if(last.next == last){
+            last = null;
+        }
+        else{
+            last.next = temp.next;
+        }
+        temp.next = null;
+        length--;
+        return temp;
     }
 }
