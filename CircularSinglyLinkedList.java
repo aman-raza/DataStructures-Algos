@@ -37,9 +37,16 @@ public class CircularSinglyLinkedList {
 
 
         // calling insertFirst method & displaying the result
-        csll.insertFirst(0);
-        csll.insertFirst(10);
-        csll.insertFirst(20);
+//        csll.insertFirst(0);
+//        csll.insertFirst(10);
+//        csll.insertFirst(20);
+//        csll.display();
+
+
+        // calling insertLast method & displaying the result
+        csll.insertLast(0);
+        csll.insertLast(10);
+        csll.insertLast(15);
         csll.display();
     }
 
@@ -85,6 +92,23 @@ public class CircularSinglyLinkedList {
             temp.next = last.next;
         }
         last.next = temp;
+        length++;
+    }
+
+    // insert node at the end
+
+    public void insertLast(int data){
+        ListNode temp = new ListNode(data);
+
+        if(last == null){
+            last = temp;
+            last.next = last;
+        }
+        else{
+            temp.next = last.next;
+            last.next = temp;
+            last = temp;
+        }
         length++;
     }
 }
