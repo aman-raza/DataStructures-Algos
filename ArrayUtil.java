@@ -3,13 +3,21 @@ package com.aman.data_structures;
 public class ArrayUtil {
 
     public static void main(String[] args) {
-        ArrayUtil arrayUtil = new ArrayUtil();
-        arrayUtil.arrayDemo();
+//        ArrayUtil arrayUtil = new ArrayUtil();
+//        arrayUtil.arrayDemo();
+
+        // creating an array
+        int[] arr = {2, 4, 3, 6, 7, 9, 10};
+        printArray(arr);
+
+        // calling removeEven function & printing the result
+        int[] result = removeEven(arr);
+        printArray(result);
     }
 
     // print an array
 
-    public void printArray(int[] arr){
+    public static void printArray(int[] arr){
         int n = arr.length;
         for(int i = 0; i < n; i++){
             System.out.print(arr[i] + " ");
@@ -40,6 +48,27 @@ public class ArrayUtil {
         int[] arr = {5, 4, 3, 2, 1};
         printArray(arr);
 
+    }
+
+    // remove even integer from an array
+
+    public static int[] removeEven(int[] arr){
+        int oddCount = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] % 2 != 0){
+                oddCount++;
+            }
+        }
+
+        int[] result = new int[oddCount];
+        int index = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] % 2 != 0){
+                result[index] = arr[i];
+                index++;
+            }
+        }
+        return result;
     }
 
 }
