@@ -26,13 +26,24 @@ public class CircularSinglyLinkedList {
         return length == 0;
     }
 
+
+
     public static void main(String[] args) {
         CircularSinglyLinkedList csll = new CircularSinglyLinkedList();
-        csll.createCircularLinkedList();
+//        csll.createCircularLinkedList();
 
         // calling the display method
+//        csll.display();
+
+
+        // calling insertFirst method & displaying the result
+        csll.insertFirst(0);
+        csll.insertFirst(10);
+        csll.insertFirst(20);
         csll.display();
     }
+
+
 
     public void createCircularLinkedList(){
         ListNode first = new ListNode(1);
@@ -61,5 +72,19 @@ public class CircularSinglyLinkedList {
             first = first.next;
         }
         System.out.println(first.data);
+    }
+
+    // insert node at the start
+
+    public void insertFirst(int data){
+        ListNode temp = new ListNode(data);
+        if(last == null){
+            last = temp;
+        }
+        else{
+            temp.next = last.next;
+        }
+        last.next = temp;
+        length++;
     }
 }
