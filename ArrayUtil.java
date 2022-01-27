@@ -7,7 +7,7 @@ public class ArrayUtil {
 //        arrayUtil.arrayDemo();
 
         // creating an array
-        int[] arr = {2, 4, 3, 6, 7, 9, 1};
+        int[] arr = {2, 4, 0, 6, 7, 0, 1};
         printArray(arr);
 
 
@@ -26,7 +26,14 @@ public class ArrayUtil {
 
 
         // calling findSecondMax & displaying the result
-        System.out.println("The second maximum value in the array is : " + findSecondMax(arr));
+//        System.out.println("The second maximum value in the array is : " + findSecondMax(arr));
+
+
+        // calling moveZeros method & printing the result
+        moveZeros(arr, arr.length);
+        printArray(arr);
+
+
     }
 
     // print an array
@@ -130,6 +137,22 @@ public class ArrayUtil {
             }
         }
         return secondMax;
+    }
+
+    // move zeroes to the end
+
+    public static void moveZeros(int[] arr, int n){
+        int j = 0; // will focus on zeroth elements
+        for(int i = 0; i < n; i++){ // will focus on non-zero elements
+            if(arr[i] != 0 && arr[j] == 0){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+            if(arr[j] != 0){
+                j++;
+            }
+        }
     }
 
 }
