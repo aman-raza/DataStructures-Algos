@@ -22,7 +22,11 @@ public class ArrayUtil {
 
 
         // calling minimum method & printing the result
-        System.out.println("The minimum value in the array is : " + minimum(arr));
+//        System.out.println("The minimum value in the array is : " + minimum(arr));
+
+
+        // calling findSecondMax & displaying the result
+        System.out.println("The second maximum value in the array is : " + findSecondMax(arr));
     }
 
     // print an array
@@ -108,6 +112,24 @@ public class ArrayUtil {
             }
         }
         return min;
+    }
+
+    // find the second max value
+
+    public static int findSecondMax(int[] arr){
+        int max = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] > max){
+                secondMax = max;
+                max = arr[i];
+            }
+            else if(arr[i] > secondMax && arr[i] != max){
+                secondMax = arr[i];
+            }
+        }
+        return secondMax;
     }
 
 }
