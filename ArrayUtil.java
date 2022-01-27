@@ -7,7 +7,7 @@ public class ArrayUtil {
 //        arrayUtil.arrayDemo();
 
         // creating an array
-        int[] arr = {2, 4, 3, 6, 7, 9, 10};
+        int[] arr = {2, 4, 3, 6, 7, 9, 1};
         printArray(arr);
 
 
@@ -17,8 +17,12 @@ public class ArrayUtil {
 
 
         // calling reverse method & printing the result
-        reverse(arr, 0, arr.length-1);
-        printArray(arr);
+//        reverse(arr, 0, arr.length-1);
+//        printArray(arr);
+
+
+        // calling minimum method & printing the result
+        System.out.println("The minimum value in the array is : " + minimum(arr));
     }
 
     // print an array
@@ -88,6 +92,22 @@ public class ArrayUtil {
             start++;
             end--;
         }
+    }
+
+    // find the minimum value
+
+    public static int minimum(int[] arr){
+        if(arr == null || arr.length == 0){
+            throw new IllegalArgumentException("Invalid Input");
+        }
+
+        int min = arr[0];
+        for(int i = 1; i < arr.length; i++){
+            if(arr[i] < min){
+                min = arr[i];
+            }
+        }
+        return min;
     }
 
 }
