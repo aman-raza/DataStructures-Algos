@@ -10,9 +10,15 @@ public class ArrayUtil {
         int[] arr = {2, 4, 3, 6, 7, 9, 10};
         printArray(arr);
 
+
         // calling removeEven function & printing the result
-        int[] result = removeEven(arr);
-        printArray(result);
+//        int[] result = removeEven(arr);
+//        printArray(result);
+
+
+        // calling reverse method & printing the result
+        reverse(arr, 0, arr.length-1);
+        printArray(arr);
     }
 
     // print an array
@@ -69,6 +75,19 @@ public class ArrayUtil {
             }
         }
         return result;
+    }
+
+
+    // reverse the array
+
+    public static void reverse(int[] numbers, int start, int end){
+        while(start < end){
+            int temp = numbers[start];
+            numbers[start] = numbers[end];
+            numbers[end] = temp;
+            start++;
+            end--;
+        }
     }
 
 }
