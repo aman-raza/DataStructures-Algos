@@ -7,9 +7,9 @@ public class ArrayUtil {
 //        arrayUtil.arrayDemo();
 
         // creating an array
-        int[] arr = {2, 4, 0, 6, 7, 0, 1};
+        int[] arr = {2, 4, 5, 6, 7, 8, 1};
         printArray(arr);
-        System.out.println(arr.length);
+//        System.out.println(arr.length);
 
 
         // calling removeEven function & printing the result
@@ -36,8 +36,12 @@ public class ArrayUtil {
 
 
         // calling resize method & printing the result
-        arr = resize(arr, 10);
-        System.out.println(arr.length);
+//        arr = resize(arr, 10);
+//        System.out.println(arr.length);
+
+
+        // calling findMissingNumber method & displaying it
+        System.out.println("The missing number int the array is : " + findMissingNumber(arr));
 
     }
 
@@ -168,6 +172,17 @@ public class ArrayUtil {
             temp[i] = arr[i];
         }
         return temp;
+    }
+
+    // find missing number in an array
+
+    public static int findMissingNumber(int[] arr){
+        int n = arr.length + 1;
+        int sum = n * (n + 1) / 2;
+        for(int num : arr){
+            sum = sum - num;
+        }
+        return sum;
     }
 
 }
