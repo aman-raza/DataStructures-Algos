@@ -41,8 +41,11 @@ public class ArrayUtil {
 
 
         // calling findMissingNumber method & displaying it
-        System.out.println("The missing number int the array is : " + findMissingNumber(arr));
+//        System.out.println("The missing number int the array is : " + findMissingNumber(arr));
 
+
+        // calling isPalindrome method & displaying the result
+        System.out.println(isPalindrome("bob"));
     }
 
     // print an array
@@ -183,6 +186,22 @@ public class ArrayUtil {
             sum = sum - num;
         }
         return sum;
+    }
+
+    // check if palindrome
+
+    public static boolean isPalindrome(String word){
+        char[] charArrayWord = word.toCharArray();
+        int start = 0;
+        int end = word.length() - 1;
+        while(start < end){
+            if(charArrayWord[start] != charArrayWord[end]){
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
     }
 
 }
