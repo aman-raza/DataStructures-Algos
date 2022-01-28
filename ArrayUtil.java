@@ -9,6 +9,7 @@ public class ArrayUtil {
         // creating an array
         int[] arr = {2, 4, 0, 6, 7, 0, 1};
         printArray(arr);
+        System.out.println(arr.length);
 
 
         // calling removeEven function & printing the result
@@ -30,9 +31,13 @@ public class ArrayUtil {
 
 
         // calling moveZeros method & printing the result
-        moveZeros(arr, arr.length);
-        printArray(arr);
+//        moveZeros(arr, arr.length);
+//        printArray(arr);
 
+
+        // calling resize method & printing the result
+        arr = resize(arr, 10);
+        System.out.println(arr.length);
 
     }
 
@@ -153,6 +158,16 @@ public class ArrayUtil {
                 j++;
             }
         }
+    }
+
+    // resize an array
+
+    public static int[] resize(int[] arr, int capacity){
+        int[] temp = new int[capacity];
+        for(int i = 0; i < arr.length; i++) {
+            temp[i] = arr[i];
+        }
+        return temp;
     }
 
 }
