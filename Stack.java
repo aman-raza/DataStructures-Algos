@@ -29,16 +29,22 @@ public class Stack {
     }
 
     public static void main(String[] args) {
-        Stack stack = new Stack();
-        stack.push(10);
-        stack.push(20);
-        stack.push(30);
+//        Stack stack = new Stack();
+//        stack.push(10);
+//        stack.push(20);
+//        stack.push(30);
+//
+//        System.out.println(stack.peek());
+//        stack.pop();
+//        System.out.println(stack.peek());
+//        stack.pop();
+//        System.out.println(stack.peek());
 
-        System.out.println(stack.peek());
-        stack.pop();
-        System.out.println(stack.peek());
-        stack.pop();
-        System.out.println(stack.peek());
+
+        // calling reverse method & printing the result
+        String str = "ABCD";
+        System.out.println("Before reverse : " + str);
+        System.out.println("After reverse : " + reverse(str));
     }
 
 
@@ -70,5 +76,21 @@ public class Stack {
             throw new EmptyStackException();
         }
         return top.data;
+    }
+
+    // reverse a string
+
+    public static String reverse(String str){
+        Stack stack = new Stack();
+        char[] chars = str.toCharArray();
+
+        for(char c : chars){
+            stack.push(c);
+        }
+
+        for(int i = 0; i < str.length(); i++){
+            chars[i] = (char) stack.pop();
+        }
+        return new String(chars);
     }
 }
