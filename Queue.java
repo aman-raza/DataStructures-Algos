@@ -1,5 +1,7 @@
 package com.aman.data_structures;
 
+import java.util.NoSuchElementException;
+
 public class Queue {
 
     private ListNode front;
@@ -34,9 +36,15 @@ public class Queue {
 
     public static void main(String[] args) {
         Queue queue = new Queue();
+
+        // enqueue operation
         queue.enqueue(10);
         queue.enqueue(20);
+        queue.print();
 
+
+        // dequeue operation
+        queue.dequeue();
         queue.print();
     }
 
@@ -66,5 +74,20 @@ public class Queue {
             current = current.next;
         }
         System.out.println("null");
+    }
+
+    // dequeue operation (removing data from the queue)
+    public int dequeue(){
+        if(isEmpty()){
+            throw new NoSuchElementException("Queue is already empty");
+        }
+
+        int result = front.data;
+        front = front.next;
+        if(front == null){
+            rear = null;
+        }
+        length--;
+        return result;
     }
 }
