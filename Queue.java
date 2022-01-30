@@ -6,6 +6,12 @@ public class Queue {
     private ListNode rear;
     private int length;
 
+    public Queue(){
+        this.front = null;
+        this.rear = null;
+        this.length = 0;
+    }
+
     private class ListNode{
         private int data;
         private ListNode next;
@@ -24,7 +30,41 @@ public class Queue {
         return length == 0;
     }
 
-    public static void main(String[] args) {
 
+
+    public static void main(String[] args) {
+        Queue queue = new Queue();
+        queue.enqueue(10);
+        queue.enqueue(20);
+
+        queue.print();
+    }
+
+
+
+    // enqueue operation (adding data in the queue)
+    public void enqueue(int data){
+        ListNode temp = new ListNode(data);
+        if(isEmpty()){
+            front = temp;
+        }
+        else{
+            rear.next = temp;
+        }
+        rear = temp;
+        length++;
+    }
+
+    // printing the data in the queue
+    public void print(){
+        if(isEmpty()){
+            return;
+        }
+        ListNode current = front;
+        while(current != null){
+            System.out.print(current.data + "-->");
+            current = current.next;
+        }
+        System.out.println("null");
     }
 }
