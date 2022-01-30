@@ -49,9 +49,13 @@ public class Stack {
 
 
         // calling nextGreaterElement method & displaying the result
-        int[] arr = {1, 7, 8, 3, 2, 4, 10};
-        int[] temp = nextGreaterElement(arr);
-        System.out.println(Arrays.toString(temp));
+//        int[] arr = {1, 7, 8, 3, 2, 4, 10};
+//        int[] temp = nextGreaterElement(arr);
+//        System.out.println(Arrays.toString(temp));
+
+
+        // calling isValid & printing the result
+        System.out.println(isValid("({[]})"));
     }
 
 
@@ -121,5 +125,31 @@ public class Stack {
             stack.push(arr[i]);
         }
         return result;
+    }
+
+    // valid parentheses problem (Balanced Brackets)
+
+    public static boolean isValid(String s){
+        Stack stack = new Stack();
+        for(char c : s.toCharArray()){
+            if(c == '(' || c == '{' || c == '['){
+                stack.push(c);
+            }
+            else{
+                if(stack.isEmpty()){
+                    return false;
+                }
+                else{
+                    char top = (char) stack.peek();
+                    if((c == ')' && top == '(') || (c == '}' && top == '{') || (c == ']' && top == '[')){
+                        stack.pop();
+                    }
+                    else{
+                        return false;
+                    }
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 }
