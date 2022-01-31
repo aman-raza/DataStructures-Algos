@@ -1,9 +1,8 @@
 package com.aman.data_structures;
 
-import java.util.Arrays;
 import java.util.EmptyStackException;
 
-public class Stack {
+public class StackUtil {
     private ListNode top;
     private int length;
 
@@ -16,7 +15,7 @@ public class Stack {
         }
     }
 
-    public Stack(){
+    public StackUtil(){
         top = null;
         length = 0;
     }
@@ -92,7 +91,7 @@ public class Stack {
     // reverse a string
 
     public static String reverse(String str){
-        Stack stack = new Stack();
+        StackUtil stack = new StackUtil();
         char[] chars = str.toCharArray();
 
         for(char c : chars){
@@ -109,7 +108,7 @@ public class Stack {
 
     public static int[] nextGreaterElement(int[] arr){
         int[] result = new int[arr.length];
-        Stack stack = new Stack();
+        StackUtil stack = new StackUtil();
         for(int i = arr.length - 1; i >= 0; i--){
             if(!stack.isEmpty()){
                 while(!stack.isEmpty() && stack.peek() <= arr[i]){
@@ -130,7 +129,7 @@ public class Stack {
     // valid parentheses problem (Balanced Brackets)
 
     public static boolean isValid(String s){
-        Stack stack = new Stack();
+        StackUtil stack = new StackUtil();
         for(char c : s.toCharArray()){
             if(c == '(' || c == '{' || c == '['){
                 stack.push(c);
