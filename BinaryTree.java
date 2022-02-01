@@ -1,6 +1,7 @@
 package com.aman.data_structures;
 
 import javax.swing.tree.TreeNode;
+import java.util.Stack;
 
 public class BinaryTree {
 
@@ -35,18 +36,40 @@ public class BinaryTree {
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
         bt.createBinaryTree();
-        bt.preOrder(bt.root);
+//        bt.preOrder(bt.root);
+        bt.preOrder();
     }
 
 
     // recursive preorder traversal
-    public void preOrder(TreeNode root){
+//    public void preOrder(TreeNode root){
+//        if(root == null){
+//            return;
+//        }
+//
+//        System.out.print(root.data + " ");
+//        preOrder(root.left);
+//        preOrder(root.right);
+//    }
+
+    // iterative preorder traversal
+    public void preOrder(){
         if(root == null){
             return;
         }
 
-        System.out.println(root.data + " ");
-        preOrder(root.left);
-        preOrder(root.right);
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+
+        while(!stack.isEmpty()){
+            TreeNode temp = stack.pop();
+            System.out.print(temp.data + " ");
+            if(temp.right != null){
+                stack.push(temp.right);
+            }
+            if(temp.left != null){
+                stack.push(temp.left);
+            }
+        }
     }
 }
