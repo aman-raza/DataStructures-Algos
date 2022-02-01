@@ -42,9 +42,15 @@ public class BinaryTree {
 //        bt.preOrder(bt.root); // recursive call
 //        bt.preOrder(); // iterative call
 
+
         // calling inOrder method
 //        bt.inOrder(bt.root); // recursive call
-        bt.inOrder(bt.root); // iterative call
+//        bt.inOrder(bt.root); // iterative call
+
+
+
+        // calling postOrder method
+        bt.postOrder(bt.root); // recursive call
 
 
     }
@@ -113,5 +119,16 @@ public class BinaryTree {
                 temp = temp.right;
             }
         }
+    }
+
+    // recursive postorder traversal
+    public void postOrder(TreeNode root){
+        if(root == null){
+            return;
+        }
+
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.data + " ");
     }
 }
