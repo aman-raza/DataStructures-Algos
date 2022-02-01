@@ -3,6 +3,8 @@ package com.aman.data_structures;
 import com.sun.source.tree.Tree;
 
 import javax.swing.tree.TreeNode;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BinaryTree {
@@ -53,10 +55,15 @@ public class BinaryTree {
 
         // calling postOrder method
 //        bt.postOrder(bt.root); // recursive call
-        bt.postOrder(); // iterative call
+//        bt.postOrder(); // iterative call
 
+
+        // calling levelOrder method
+        bt.levelOrder();
 
     }
+
+
 
 
     // recursive preorder traversal
@@ -158,6 +165,27 @@ public class BinaryTree {
                 else{
                     current = temp;
                 }
+            }
+        }
+    }
+
+    // levelorder traversal
+    public void levelOrder(){
+        if(root == null){
+            return;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while(!queue.isEmpty()){
+            TreeNode temp = queue.poll();
+            System.out.print(temp.data + " ");
+            if(temp.left != null){
+                queue.offer(temp.left);
+            }
+            if(temp.right != null){
+                queue.offer(temp.right);
             }
         }
     }
