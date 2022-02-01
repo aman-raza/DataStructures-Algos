@@ -36,8 +36,16 @@ public class BinaryTree {
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
         bt.createBinaryTree();
-//        bt.preOrder(bt.root);
-        bt.preOrder();
+
+        // calling preOrder method
+
+//        bt.preOrder(bt.root); // recursive call
+//        bt.preOrder(); // iterative call
+
+        // calling inOrder method
+        bt.inOrder(bt.root);
+
+
     }
 
 
@@ -71,5 +79,16 @@ public class BinaryTree {
                 stack.push(temp.left);
             }
         }
+    }
+
+    // recursive inorder traversal
+    public void inOrder(TreeNode root){
+        if(root == null){
+            return;
+        }
+
+        inOrder(root.left);
+        System.out.print(root.data + " ");
+        inOrder(root.right);
     }
 }
