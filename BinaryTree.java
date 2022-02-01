@@ -43,7 +43,8 @@ public class BinaryTree {
 //        bt.preOrder(); // iterative call
 
         // calling inOrder method
-        bt.inOrder(bt.root);
+//        bt.inOrder(bt.root); // recursive call
+        bt.inOrder(bt.root); // iterative call
 
 
     }
@@ -82,13 +83,35 @@ public class BinaryTree {
     }
 
     // recursive inorder traversal
+//    public void inOrder(TreeNode root){
+//        if(root == null){
+//            return;
+//        }
+//
+//        inOrder(root.left);
+//        System.out.print(root.data + " ");
+//        inOrder(root.right);
+//    }
+
+    // iterative inorder traversal
     public void inOrder(TreeNode root){
         if(root == null){
             return;
         }
 
-        inOrder(root.left);
-        System.out.print(root.data + " ");
-        inOrder(root.right);
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode temp = root;
+
+        while(!stack.isEmpty() || temp != null){
+            if(temp != null){
+                stack.push(temp);
+                temp = temp.left;
+            }
+            else{
+                temp = stack.pop();
+                System.out.print(temp.data + " ");
+                temp = temp.right;
+            }
+        }
     }
 }
