@@ -18,11 +18,10 @@ public class BinaryTree {
     }
 
     public void createBinaryTree(){
-        TreeNode first = new TreeNode(1);
+        TreeNode first = new TreeNode(9);
         TreeNode second = new TreeNode(2);
         TreeNode third = new TreeNode(3);
         TreeNode fourth = new TreeNode(4);
-        TreeNode fifth = new TreeNode(5);
 
         root = first; // root ---> first
 
@@ -30,10 +29,24 @@ public class BinaryTree {
         first.right = third; // second <--- first ---> third
 
         second.left = fourth;
-        second.right = fifth; // fourth <--- second ---> fifth
+//        second.right = fifth; // fourth <--- second ---> fifth
     }
 
     public static void main(String[] args) {
+        BinaryTree bt = new BinaryTree();
+        bt.createBinaryTree();
+        bt.preOrder(bt.root);
+    }
 
+
+    // recursive preorder traversal
+    public void preOrder(TreeNode root){
+        if(root == null){
+            return;
+        }
+
+        System.out.println(root.data + " ");
+        preOrder(root.left);
+        preOrder(root.right);
     }
 }
