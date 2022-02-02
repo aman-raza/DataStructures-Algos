@@ -59,7 +59,11 @@ public class BinaryTree {
 
 
         // calling levelOrder method
-        bt.levelOrder();
+//        bt.levelOrder();
+
+
+        // calling findMax method & printing the result
+        System.out.println(bt.findMax());
 
     }
 
@@ -188,5 +192,27 @@ public class BinaryTree {
                 queue.offer(temp.right);
             }
         }
+    }
+
+    // find maximum value in a Binary Tree
+    public int findMax(){
+        return findMax(root);
+    }
+
+    public int findMax(TreeNode root){
+        if(root == null){
+            return Integer.MIN_VALUE;
+        }
+        int result = root.data;
+        int left = findMax(root.left);
+        int right = findMax(root.right);
+
+        if(left > result){
+            result = left;
+        }
+        if(right > result){
+            result = right;
+        }
+        return result;
     }
 }
