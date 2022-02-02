@@ -28,10 +28,20 @@ public class BinarySearchTree {
         // calling inOrder method & printing the result in sorted form
         bst.inOrder();
 
+
+        // calling search method & displaying the result
+        if(bst.search(9) != null){
+            System.out.println("Key Found !!!");
+        }
+        else{
+            System.out.println("Key Not Found !!!");
+        }
+
     }
 
 
     // insert a value
+
     public void insert(int value){
         root = insert(root, value);
     }
@@ -65,5 +75,24 @@ public class BinarySearchTree {
         inOrder(root.left);
         System.out.print(root.data + " ");
         inOrder(root.right);
+    }
+
+
+    // search a key value
+
+    public TreeNode search(int key){
+        return search(root, key);
+    }
+
+    public TreeNode search(TreeNode root, int key){
+        if(root == null || root.data == key){
+            return root;
+        }
+        if(key < root.data){
+            return search(root.left, key);
+        }
+        else{
+            return search(root.right, key);
+        }
     }
 }
