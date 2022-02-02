@@ -196,7 +196,7 @@ public class BinaryTree {
 
     // find maximum value in a Binary Tree
     public int findMax(){
-        return findMax(root);
+        return findMax(root); // the root value is from the top where it was declared
     }
 
     public int findMax(TreeNode root){
