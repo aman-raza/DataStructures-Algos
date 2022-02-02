@@ -1,6 +1,7 @@
 package com.aman.data_structures;
 
-import javax.swing.tree.TreeNode;
+import static java.lang.Long.MAX_VALUE;
+import static java.lang.Long.MIN_VALUE;
 
 public class BinarySearchTree {
 
@@ -26,15 +27,24 @@ public class BinarySearchTree {
 
 
         // calling inOrder method & printing the result in sorted form
-        bst.inOrder();
+//        bst.inOrder();
 
 
         // calling search method & displaying the result
-        if(bst.search(9) != null){
-            System.out.println("Key Found !!!");
+//        if(bst.search(9) != null){
+//            System.out.println("Key Found !!!");
+//        }
+//        else{
+//            System.out.println("Key Not Found !!!");
+//        }
+
+
+        // calling isValid method
+        if(bst.isValid()){
+            System.out.println("This is a valid BinarySearchTree");
         }
         else{
-            System.out.println("Key Not Found !!!");
+            System.out.println("This is not a valid BinarySearchTree");
         }
 
     }
@@ -97,6 +107,11 @@ public class BinarySearchTree {
     }
 
     // valid binary search tree
+
+    public boolean isValid(){
+        return isValid(root, MIN_VALUE, MAX_VALUE);
+    }
+
     public boolean isValid(TreeNode root, long min, long max){
         if(root == null){
             return true;
