@@ -18,6 +18,10 @@ public class MaxPQ {   // Max Priority Queue
         return n;
     }
 
+
+
+
+
     public static void main(String[] args) {
         MaxPQ pq = new MaxPQ(3);
 //        System.out.println(pq.size());  // 0
@@ -27,8 +31,13 @@ public class MaxPQ {   // Max Priority Queue
         pq.insert(3);
         pq.insert(4);
         pq.insert(5);
+        pq.insert(6);
         System.out.println(pq.size());
+        pq.printMaxHeap();
     }
+
+
+
 
     // insert in a Max Heap
 
@@ -56,5 +65,13 @@ public class MaxPQ {   // Max Priority Queue
             temp[i] = heap[i];
         }
         heap = temp;
+    }
+
+    // printing the Max Heap
+
+    public void printMaxHeap(){
+        for(int i = 1; i <= n; i++){
+            System.out.print(heap[i] + " ");
+        }
     }
 }
