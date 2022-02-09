@@ -8,7 +8,7 @@ public class MergeSortedArrays {
         int[] arr2 = {3, 4, 9};
         msa.print(arr1);
         msa.print(arr2);
-        
+
         int[] result = msa.merge(arr1, arr2, arr1.length, arr2.length);
         msa.print(result);
     }
