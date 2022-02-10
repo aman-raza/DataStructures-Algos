@@ -7,8 +7,8 @@ public class ArrayUtil {
 //        arrayUtil.arrayDemo();
 
         // creating an array
-        int[] arr = {2, 4, 5, 6, 7, 8, 1};
-        printArray(arr);
+//        int[] arr = {2, 4, 5, 6, 7, 8, 1};
+//        printArray(arr);
 //        System.out.println(arr.length);
 
 
@@ -45,7 +45,14 @@ public class ArrayUtil {
 
 
         // calling isPalindrome method & displaying the result
-        System.out.println(isPalindrome("bob"));
+//        System.out.println(isPalindrome("bob"));
+
+
+        // calling sortedSquares method & printing the result
+        int[] arr = {-4, -1, 0, 3, 10};
+        printArray(arr);
+        int[] arr2 = sortedSquares(arr);
+        printArray(arr2);
     }
 
     // print an array
@@ -202,6 +209,27 @@ public class ArrayUtil {
             end--;
         }
         return true;
+    }
+
+    // squares of sorted array
+
+    public static int[] sortedSquares(int[] arr){
+        int n = arr.length;
+        int[] result = new int[n];
+        int i = 0;
+        int j = n - 1;
+
+        for(int k = n - 1; k >= 0; k--){
+            if(Math.abs(arr[i]) > Math.abs(arr[j])){
+                result[k] = arr[i] * arr[i];
+                i++;
+            }
+            else{
+                result[k] = arr[j] * arr[j];
+                j--;
+            }
+        }
+        return result;
     }
 
 }
