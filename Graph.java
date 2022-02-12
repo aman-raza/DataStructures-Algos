@@ -1,6 +1,7 @@
 package com.aman.data_structures;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class Graph {
 
@@ -82,14 +83,40 @@ public class Graph {
         return sb.toString();
     }
 
+    // Adjacency List Representation : END
+
+
+
+    // Breadth First Search of undirected Graph (Level Order Traversal)
+
+    public void bfs(int s){
+        boolean[] visited = new boolean[V];
+        Queue<Integer> q = new LinkedList<>();
+        visited[s] = true;
+        q.offer(s);
+
+        while(!q.isEmpty()){
+            int u = q.poll();
+            System.out.print(u + " ");
+            for(int v : adj[u]){
+                if(!visited[v]){
+                    visited[v] = true;
+                    q.offer(v);
+                }
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
-        Graph g = new Graph(4);
+        Graph g = new Graph(5);
         g.addEdge(0, 1);
         g.addEdge(1, 2);
         g.addEdge(2, 3);
         g.addEdge(3, 0);
-        System.out.println(g);
+        g.addEdge(2, 4);
+//        System.out.println(g);
+        g.bfs(0);  // s is the source node
     }
 
-    // Adjacency List Representation : END
 }
