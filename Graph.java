@@ -133,24 +133,52 @@ public class Graph {
 
     // Depth First Search of undirected Graph (Recursive)
 
+//    public void dfs(){
+//        boolean[] visited = new boolean[V];
+//        for(int v = 0; v < V; v++){
+//            if(!visited[v]){
+//                dfs(v, visited);
+//            }
+//        }
+//    }
+//
+//    public void dfs(int v, boolean[] visited){
+//        visited[v] = true;
+//        System.out.print(v + " ");
+//        for(int w : adj[v]){
+//            if(!visited[w]){
+//                dfs(w, visited);
+//            }
+//        }
+//    }
+
+
+    // Connected Components in undirected Graph
+
     public void dfs(){
         boolean[] visited = new boolean[V];
+        int[] compId = new int[V];
+        int count = 0;
+
         for(int v = 0; v < V; v++){
             if(!visited[v]){
-                dfs(v, visited);
+                dfs(v, visited, compId, count);
+                count++;
             }
         }
     }
 
-    public void dfs(int v, boolean[] visited){
+    private void dfs(int v, boolean[] visited, int[] compId, int count) {
         visited[v] = true;
-        System.out.print(v + " ");
+        compId[v] = count;
+
         for(int w : adj[v]){
             if(!visited[w]){
-                dfs(w, visited);
+                dfs(w, visited, compId, count);
             }
         }
     }
+
 
 
     public static void main(String[] args) {
@@ -160,7 +188,8 @@ public class Graph {
         g.addEdge(2, 3);
         g.addEdge(3, 0);
         g.addEdge(2, 4);
-        g.addEdge(5, 5);
+
+
 //        System.out.println(g);
 
         // calling bfs method & displaying the result
@@ -170,7 +199,7 @@ public class Graph {
 //        g.dfs(0);
 
         // calling dfs method & displaying the result (Recursive)
-        g.dfs();
+//        g.dfs();
     }
 
 }
