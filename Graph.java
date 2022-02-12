@@ -111,40 +111,66 @@ public class Graph {
 
     // Depth First Search of undirected Graph (Iterative)
 
-    public void dfs(int s){  // s is the source node
-        boolean[] visited = new boolean[V];
-        Stack<Integer> stack = new Stack<>();
-        stack.push(s);
+//    public void dfs(int s){  // s is the source node
+//        boolean[] visited = new boolean[V];
+//        Stack<Integer> stack = new Stack<>();
+//        stack.push(s);
+//
+//        while(!stack.isEmpty()){
+//            int u = stack.pop();
+//            if(!visited[u]){
+//                visited[u] = true;
+//                System.out.print(u + " ");
+//                for(int v : adj[u]){
+//                    if(!visited[v]){
+//                        stack.push(v);
+//                    }
+//                }
+//            }
+//        }
+//    }
 
-        while(!stack.isEmpty()){
-            int u = stack.pop();
-            if(!visited[u]){
-                visited[u] = true;
-                System.out.print(u + " ");
-                for(int v : adj[u]){
-                    if(!visited[v]){
-                        stack.push(v);
-                    }
-                }
+
+    // Depth First Search of undirected Graph (Recursive)
+
+    public void dfs(){
+        boolean[] visited = new boolean[V];
+        for(int v = 0; v < V; v++){
+            if(!visited[v]){
+                dfs(v, visited);
+            }
+        }
+    }
+
+    public void dfs(int v, boolean[] visited){
+        visited[v] = true;
+        System.out.print(v + " ");
+        for(int w : adj[v]){
+            if(!visited[w]){
+                dfs(w, visited);
             }
         }
     }
 
 
     public static void main(String[] args) {
-        Graph g = new Graph(5);
+        Graph g = new Graph(6);
         g.addEdge(0, 1);
         g.addEdge(1, 2);
         g.addEdge(2, 3);
         g.addEdge(3, 0);
         g.addEdge(2, 4);
+        g.addEdge(5, 5);
 //        System.out.println(g);
 
         // calling bfs method & displaying the result
 //        g.bfs(0);  // s is the source node
 
         // calling dfs method & displaying the result (Iterative)
-        g.dfs(0);
+//        g.dfs(0);
+
+        // calling dfs method & displaying the result (Recursive)
+        g.dfs();
     }
 
 }
