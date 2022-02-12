@@ -2,6 +2,7 @@ package com.aman.data_structures;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Graph {
 
@@ -89,7 +90,7 @@ public class Graph {
 
     // Breadth First Search of undirected Graph (Level Order Traversal)
 
-    public void bfs(int s){
+    public void bfs(int s){  // s is the source node
         boolean[] visited = new boolean[V];
         Queue<Integer> q = new LinkedList<>();
         visited[s] = true;
@@ -108,6 +109,28 @@ public class Graph {
     }
 
 
+    // Depth First Search of undirected Graph (Iterative)
+
+    public void dfs(int s){  // s is the source node
+        boolean[] visited = new boolean[V];
+        Stack<Integer> stack = new Stack<>();
+        stack.push(s);
+
+        while(!stack.isEmpty()){
+            int u = stack.pop();
+            if(!visited[u]){
+                visited[u] = true;
+                System.out.print(u + " ");
+                for(int v : adj[u]){
+                    if(!visited[v]){
+                        stack.push(v);
+                    }
+                }
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         Graph g = new Graph(5);
         g.addEdge(0, 1);
@@ -116,7 +139,12 @@ public class Graph {
         g.addEdge(3, 0);
         g.addEdge(2, 4);
 //        System.out.println(g);
-        g.bfs(0);  // s is the source node
+
+        // calling bfs method & displaying the result
+//        g.bfs(0);  // s is the source node
+
+        // calling dfs method & displaying the result (Iterative)
+        g.dfs(0);
     }
 
 }
