@@ -155,29 +155,60 @@ public class Graph {
 
     // Connected Components in undirected Graph
 
-    public void dfs(){
-        boolean[] visited = new boolean[V];
-        int[] compId = new int[V];
-        int count = 0;
+//    public void dfs(){
+//        boolean[] visited = new boolean[V];
+//        int[] compId = new int[V];
+//        int count = 0;
+//
+//        for(int v = 0; v < V; v++){
+//            if(!visited[v]){
+//                dfs(v, visited, compId, count);
+//                count++;
+//            }
+//        }
+//    }
+//
+//    private void dfs(int v, boolean[] visited, int[] compId, int count) {
+//        visited[v] = true;
+//        compId[v] = count;
+//
+//        for(int w : adj[v]){
+//            if(!visited[w]){
+//                dfs(w, visited, compId, count);
+//            }
+//        }
+//    }
 
-        for(int v = 0; v < V; v++){
-            if(!visited[v]){
-                dfs(v, visited, compId, count);
-                count++;
+
+    // Number of Islands
+
+    public int numIslands(char[][] grid){
+        int m = grid.length;
+        int n = grid[0].length;
+        boolean[][] visited = new boolean[m][n];
+        int numOfIslands = 0;
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(!visited[i][j] && grid[i][j] == '1'){
+                    dfs(grid, i, j, visited);
+                    numOfIslands++;
+                }
             }
         }
+        return numOfIslands;
     }
 
-    private void dfs(int v, boolean[] visited, int[] compId, int count) {
-        visited[v] = true;
-        compId[v] = count;
-
-        for(int w : adj[v]){
-            if(!visited[w]){
-                dfs(w, visited, compId, count);
-            }
+    private void dfs(char[][] grid, int row, int col, boolean[][] visited) {
+        if(row < 0 || col < 0 || row >= grid.length || col >= grid[0].length || visited[row][col] || grid[row][col] == '0'){
+            return;
         }
+        visited[row][col] = true;
+        dfs(grid, row, col - 1, visited);
+        dfs(grid, row - 1, col, visited);
+        dfs(grid, row, col + 1, visited);
+        dfs(grid, row + 1, col, visited);
     }
+
 
 
 
@@ -188,6 +219,12 @@ public class Graph {
         g.addEdge(2, 3);
         g.addEdge(3, 0);
         g.addEdge(2, 4);
+
+        // grid[][]
+        char[][] grid = {{'1', '1', '0', '0'},
+                {'1', '0', '0', '0'},
+                {'0', '0', '1', '0'},
+                {'0', '0', '0', '1'}};
 
 
 //        System.out.println(g);
@@ -200,6 +237,10 @@ public class Graph {
 
         // calling dfs method & displaying the result (Recursive)
 //        g.dfs();
+
+        // calling numIslands method & printing the result
+        int count = g.numIslands(grid);
+        System.out.println("Number of Islands : " + count);
     }
 
 }
