@@ -76,6 +76,8 @@ public class HashTable {
         HashTable table = new HashTable(10);
         table.put(105, "Tom");
         table.put(21, "Sana");
+        table.put(21, "Harry"); // now Sana got replaced by Harry
+        table.put(31, "Dinesh"); // this will get added by the next to Harry
         System.out.println(table.size());
     }
 }
