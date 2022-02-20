@@ -37,6 +37,11 @@ public class HashTable {
         return size == 0;
     }
 
+    private int getBucketIndex(Integer key){
+        return key % numOfBuckets;
+    }
+
+
 
 
     public void put(Integer key, String value){
@@ -77,13 +82,34 @@ public class HashTable {
         return null;
     }
 
-    private int getBucketIndex(Integer key){
-        return key % numOfBuckets;
+    public String remove(Integer key){
+        int bucketIndex = getBucketIndex(key);
+        HashNode head = buckets[bucketIndex];
+        HashNode previous = null;
+
+        while(head != null){
+            if(head.key.equals(key)){
+                break;
+            }
+            previous = head;
+            head = head.next;
+        }
+
+        if(head == null){
+            return null;
+        }
+        size--;
+
+        if(previous != null){
+            previous.next = head.next;
+        }
+        else{
+            buckets[bucketIndex] = head.next;
+        }
+        return head.value;
     }
 
-    public String remove(Integer key){
-        return null;
-    }
+
 
     public static void main(String[] args) {
         HashTable table = new HashTable(10);
@@ -93,5 +119,7 @@ public class HashTable {
         table.put(31, "Dinesh"); // this will get added by the next to Harry
         System.out.println(table.size());
         System.out.println(table.get(31));
+        System.out.println(table.remove(21));
+        System.out.println(table.size());
     }
 }
