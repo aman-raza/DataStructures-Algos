@@ -48,7 +48,7 @@ public class TwoSum {
                 left++;
             }
             else {
-                left--;
+                right--;
             }
         }
         throw new IllegalArgumentException("Two numbers not found");
