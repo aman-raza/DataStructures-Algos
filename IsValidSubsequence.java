@@ -1,5 +1,7 @@
 package com.aman.data_structures;
 
+import java.util.Scanner;
+
 public class IsValidSubsequence {
 
     public static void main(String[] args) {
